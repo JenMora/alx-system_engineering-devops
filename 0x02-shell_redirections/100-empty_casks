@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type -fda -name empty files and directories
