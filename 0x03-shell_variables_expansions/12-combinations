@@ -1,2 +1,3 @@
 #!/bin/bash
-echo {{a-z}{A-Z}} |grep -i(oo) |sort -i |tail -64
+for i in {a..z}; do for j in {a..z}; do s="$i$j"; [ "$s" != "oo" ] && echo "$s"; done; done
+
