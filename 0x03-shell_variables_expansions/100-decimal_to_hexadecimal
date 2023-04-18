@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%"hexadecimal "\n"  $DECIMAL
+printf "%hexadecimal \n"  $DECIMAL
