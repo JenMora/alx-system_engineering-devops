@@ -1,2 +1,2 @@
 #!/bin/bash
-for i in {a..z}; do for j in {a..z}; do s="$i$j"; [ "$s" != "oo" ] && echo "$s"; done; done
+echo {a..z}{a..z} | tr " " "\n" | grep -v "oo"
