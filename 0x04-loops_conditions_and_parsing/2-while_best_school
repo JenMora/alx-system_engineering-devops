@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This is a bash script that prints 10 lines with the content Best school
+#+ using a while loop
+
+str=0
+
+while ((str < 10))
+do
+        echo "Best School"
+	((str++))
+done
