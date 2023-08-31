@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Set the internal field separator to colon
+IFS=":"
+
+# Open the /etc/passwd file
+while read -r username password uid gid comment homedir shell; do
+
+  # Format the output
+  echo "The user $username is part of the $gid gang, lives in $homedir and
+rides $shell. $uid's place is protected by the passcode $password,
+more info about the user here: $comment"
+
+done < /etc/passwd
+# This script first sets the internal field separator to colon, which is the
+#+ delimiter used in the /etc/passwd file. Then, it opens the file and reads
+#+ each line one by one. For each line, the script formats the output according
+#+ to the specified format and prints it to the console.
