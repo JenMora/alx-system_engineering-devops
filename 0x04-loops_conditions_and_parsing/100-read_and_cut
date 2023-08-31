@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# A Bash script that displays the content of the file /etc/passwd.
+
+while read -r file
+do
+   echo "$file" | cut -d ":" -f1,4,6
+done < /etc/passwd
+
+# The cut command then splits the line into fields separated by the colon (:)
+#+character.he -d option specifies the delimiter, and the -f option specifies
+#+the fields to keep. In this case, we are keeping the first, fourth, and
+#+sixth fields, which are the username, UID, and GID, respectively.
+
