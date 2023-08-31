@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This is a bash script that prints 10 lines with the content Best school
+#+ using a while loop with an if statement
+
+str=0
+
+while ((str < 10))
+do
+        ((str++))
+        if [ $str -eq 4 ]
+        then
+                echo "bad luck"
+	elif [ $str -eq 8 ]
+	then 
+		echo "good luck"
+	else
+		echo "Best School"
+        fi
+done
