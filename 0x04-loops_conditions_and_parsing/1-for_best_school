@@ -2,7 +2,7 @@
 # This is a bash script that prints 10 lines with the content Best school
 #+ using a for loop
 
-for (str = 1; str <= 10; str++)
+for ((str = 1; str <= 10; str++))
 do
 	echo $ "Best School"
 done
