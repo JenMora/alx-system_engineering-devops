@@ -2,9 +2,9 @@
 # This is a bash script that prints 10 lines with the content Best school
 #+ using a while loop with an if statement
 
-str=0
+str=1
 
-while ((str <= 20))
+while ((str <= 21))
 do
 	echo $str
 	case "$str" in
