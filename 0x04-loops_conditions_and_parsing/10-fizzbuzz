@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #a Bash script that displays numbers from 1 to 100.
 
-num=0
+num=1
 while [ $num -ne 101 ]
 do
     if [ $((num % 15)) -eq 0 ]
