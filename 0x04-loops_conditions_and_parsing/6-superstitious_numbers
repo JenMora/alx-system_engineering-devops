@@ -4,7 +4,7 @@
 
 str=1
 
-while ((str <= 21))
+while ((str < 21))
 do
 	echo $str
 	case "$str" in
