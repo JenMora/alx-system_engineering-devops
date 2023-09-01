@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2009
+
+# Get a list of all processes.
+#processes=$(ps -ef)
+
+# Print the lines containing the bash word.
+#for process in $processes; do
+#  if echo $process | grep -q "bash"; then
+#    echo $process
+#  fi
+#done
+ps axuf | grep bash
+
