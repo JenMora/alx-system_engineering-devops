@@ -6,8 +6,8 @@
 #include <unistd.h>
 
 /**
-*infinite_while - Run an infinite while loop
-*Return: Always 0.
+*infinite_while - This function runs an infinite while loop
+*Return: 0 on sucess
 */
 int infinite_while(void)
 {
@@ -20,8 +20,8 @@ return (0);
 
 
 /**
-*main - This is a function that creates five zombie processes.
-*Return: Always 0.
+*main - This is the main function that creates five zombie processes.
+*Return: 0 on sucess
 */
 int main(void)
 {
