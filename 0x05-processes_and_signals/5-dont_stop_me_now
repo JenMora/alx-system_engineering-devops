@@ -4,5 +4,5 @@ file=$(pgrep -f "4-to_infinity_and_beyond")
 
 if [ "$file" ]
 then
-	kill "$pid"
+	kill "$file"
 fi
