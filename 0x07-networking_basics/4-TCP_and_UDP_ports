@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# This script displays a litsening port and it's process ID
+nestats -lp
