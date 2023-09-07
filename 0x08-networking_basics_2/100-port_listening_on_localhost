@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#a Bash script that listens on port 98 on localhost.
+
+nc -l -k 98
+
+#nc command is a versatile command-line tool that can be used for a variety of
+#tasks, including networking, debugging, and security testing. It can be used
+#to listen on a port, connect to a remote host, and transfer files.
+#The -l option tells the nc command to listen on a port. The -k option tells
+#the nc command to keep listening even after a connection is closed.
