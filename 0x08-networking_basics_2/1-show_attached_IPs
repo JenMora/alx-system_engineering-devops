@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# a Bash script that displays all active IPv4 IPs on the machine it’s
+#+ executed on.
+
+ifconfig | grep "inet" | cut -d ":" -f 2 | cut -d " " -f 2
+
+#works by first running the ifconfig command, which will print a list of all
+#the network interfaces on the system. Then, it uses the grep command to search
+#the output of the ifconfig command for the string "inet". This will match all
+#the lines that contain an IP address.
+#The cut command is then used to extract the IP address from the output of the
+#grep command. The first cut command uses the -d ":" option to split the output
+#on the colon character. The second cut command uses the -d " " option to split
+#the output on the space character.
+#The final output of the script will be the IP address of the current
+#network interface.
