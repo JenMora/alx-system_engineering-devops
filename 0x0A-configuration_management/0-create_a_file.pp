@@ -6,4 +6,3 @@ file {'school':
   group   => 'www-data',
   content => "I love Puppet\n", # Use double quotes to avoid issues with escape
 }
-
