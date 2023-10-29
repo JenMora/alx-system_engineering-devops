@@ -4,4 +4,4 @@
 server="your_server_address"
 
 # Use the 'i' flag to specify the identity file (private key)
-ssh -i ~/.ssh/school ubuntu@$server
+ssh -i ~/.ssh/school ubuntu@54.234.67.94
