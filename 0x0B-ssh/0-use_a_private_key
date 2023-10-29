@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Set the target server hostname or IP address
-server="your_server_address"
-
-# Use the 'i' flag to specify the identity file (private key)
+# a Bash script that uses ssh to connect to your server using
+# the private key ~/.ssh/school with the user ubuntu
 ssh -i ~/.ssh/school ubuntu@54.234.67.94
