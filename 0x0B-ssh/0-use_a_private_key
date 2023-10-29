@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Set the target server hostname or IP address
+server="your_server_address"
+
+# Use the 'i' flag to specify the identity file (private key)
+ssh -i ~/.ssh/school ubuntu@$server
