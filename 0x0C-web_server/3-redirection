@@ -2,8 +2,9 @@
 # A bash script that configures your Nginx server and 
 # redirects to another page.
 redirect_301="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-apt-get update
-apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.html
-sed -i "30i $redirect_301" /etc/nginx/sites-available/default
-service nginx restart
+sudo apt-get update
+sudo apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+redirect_301="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "s/server_name_: $redirect_301" /etc/nginx/sites-available/default
+sudo service nginx restart
