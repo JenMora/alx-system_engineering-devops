@@ -3,18 +3,11 @@
 
 sudo apt-get update
 sudo apt-get install -y nginx
+sudo ufw 'Nginx HTTP'
 
-echo "server {
- listen 80 default_server;
- listen [::]:80 default_server;
+echo "Hello World!" | sudo tee /var/www/html/index.html;
 
- root /var/www/html;
- index index.html;
-
- location / {
-  return 200 'Hello World!';
- }
-}" > /etc/nginx/sites-available/default
+sudo nginx -i # ngnix configuration
 
 sudo service nginx restart
 sudo service ngix reload
