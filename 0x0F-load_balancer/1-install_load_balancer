@@ -10,7 +10,7 @@ frontend myfrontend
 
 backend myservers
   balance roundrobin
-  server 405012-web-01 54.234.67.94
-  server 405012-web-02 100.26.49.141
+  server 404100-web-01 54.84.237.217
+  server 404100-web-02 54.236.43.154
 EOL
 service haproxy start
