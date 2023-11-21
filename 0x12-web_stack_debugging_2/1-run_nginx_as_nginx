@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Install sudo (if not already installed)
+apt-get update
+apt-get install -y sudo
+
+# Create the nginx user if it doesn't exist
+user_exists=$(id -u nginx > /dev/null 2>&1; echo $?)
+if [ "$user_exists" -ne 0 ]; then
+    sudo adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+fi
+
+# Backup the existing nginx configuration
+cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+
+# Replace 'user' directive in nginx.conf with 'nginx'
+sed -i 's/user\s*[^;]*/user nginx;/' /etc/nginx/nginx.conf
+
+# Update the default site configuration to listen on all active IPs on port 8080
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+sed -i 's/listen\s*[^;]*;/listen 8080;/g' /etc/nginx/sites-available/default
+
+# Restart Nginx to apply the changes
+service nginx restart
