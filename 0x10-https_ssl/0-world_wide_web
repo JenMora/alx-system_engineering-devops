@@ -11,7 +11,7 @@ domain_func() {
 if [ "$#" -eq 2 ]; then
 	domain_func "$1" "$2"
 else
-        subdomains=("web-01" "web-02" "lb-01" "www" )
+	subdomains=("www" "lb_01" "web-01" "web-02")
         for subdomain in "${subdomains[@]}"; do
 	domain_func "$1" "$subdomain"
         done
