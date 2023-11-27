@@ -63,22 +63,19 @@ def export_csv(employee_id, total_tasks, tasks, user_info):
         - TASK_TITLE: The title of each task.
     """
 
-    file_name = f"{employee_id}.csv"
-
-    with open(file_name, 'w', newline='') as csv_file:
+    file = f"{employee_id}.csv"
+    with open(file, 'w', newline='') as csvfile:
         fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
                       'TASK_TITLE']
-
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames,
-                                    quoting=csv.QUOTE_ALL)
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames,
+                                quoting=csv.QUOTE_ALL)
         for task in tasks:
-
-            csv_writer.writerow({
+            writer.writerow({
                 'USER_ID': employee_id,
                 'USERNAME': user_info['username'],
                 'TASK_COMPLETED_STATUS': task['completed'],
                 'TASK_TITLE': task['title']
-            })
+                })
 
 
 if __name__ == "__main__":
