@@ -1,42 +1,22 @@
 #!/usr/bin/python3
 import requests
-
 """
-Reddit Subreddit Subscribers Query
-
-This script defines a function that queries the Reddit API to retrieve the number
-of subscribers for a given subreddit.
+function that queries reddit api and returns number
+of subs
 """
 
-def  number_of_subscribers(subreddit_name):
+
+def number_of_subscribers(subreddit):
     """
-    Retrieve the number of subscribers for a given subreddit.
-
-    Args:
-        subreddit_name (str): The name of the subreddit.
-
-    Returns:
-        int: The number of subscribers for the specified subreddit.
+    function definition of getting number of subs
     """
-    # Construct the URL for the Reddit API endpoint of the specified subreddit
-    api_url = f"https://api.reddit.com/r/{subreddit_name}/about"
-
-    # Set a custom User-Agent header to identify the client making the request
-    headers = {'User-Agent': 'CustomRedditClient/1.0'}
-
-    # Send an HTTP GET request to the Reddit API
-    response = requests.get(api_url, headers=headers, allow_redirects=False)
-
-    # Check if the request was successful (status code 200)
-    if response.status_code != 200:
-        return 0
-
-    # Parse the JSON response from the API
-    response_json = response.json()
-
-    # Check if the "data" key is present in the response
-    if "data" in response_json:
-        # Return the number of subscribers from the response
-        return response_json["data"]["subscribers"]
+    url = "https://api.reddit.com/r/{}/about".format(subreddit)
+    header = {'User-Agent': 'CustomClient/1.0'}
+    req = requests.get(url, headers=header, allow_redirects=False)
+    if req.status_code != 200:
+        return (0)
+    req = req.json()
+    if "data" in req:
+        return (req.get("data").get("subscribers"))
     else:
-        return 0
+        return (0)
