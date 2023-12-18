@@ -1,6 +1,5 @@
 # Fixes an error with a WordPress Website
-exec { 'fix_wordpress_error':
+exec { '/var/www/html/wp-setting.php':
   command => "sed -i 's/.phpp/.php/g' /var/www/html/wp-settings.php",
-  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-  onlyif  => "test -f /var/www/html/wp-settings.php", # Ensures the file exists before running the command
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 }
