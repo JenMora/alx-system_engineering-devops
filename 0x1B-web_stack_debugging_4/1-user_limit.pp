@@ -1,6 +1,6 @@
-# make nginx open more files to avoid failed requests
+# change the OS configuration so I can log in with Holberton user and open the file without error
 
-exec { 'set limit to 2000 and reboot nginx':
-  path    => '/bin',
-  command => "sed -i 's/15/2000/' /etc/default/nginx && /usr/sbin/service nginx restart"
+exec { 'setting limits':
+  command => "sed -i 's/5/4000/' /etc/security/limits.conf && sed -i 's/4/2000/' /etc/security/limits.conf",
+  path    => '/bin'
 }
