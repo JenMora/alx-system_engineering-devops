@@ -1,12 +1,6 @@
-# Fix stack to get failed requests to 0
+# make nginx open more files to avoid failed requests
 
-exec {'replace_u-limit':
-  path    => ['/bin', '/usr/bin'],
-  command => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
-  before  => Exec['restart_nginx'],
-}
-
-exec {'restart_nginx':
-  path    => ['/bin', '/usr/bin'],
-  command => 'sudo service nginx restart',
+exec { 'set limit to 2000 and reboot nginx':
+  path    => '/bin',
+  command => "sed -i 's/15/2000/' /etc/default/nginx && /usr/sbin/service nginx restart"
 }
