@@ -1,10 +1,12 @@
-# Increases the amount of traffic an Nginx server can handle.
+# Fix stack to get failed requests to 0
 
-# Increase the ULIMIT of the default file
-exec { 'fix--for-nginx':
-  command => '/bin/sed -i \'s/ULIMIT="-n 15"/ULIMIT="-n 4096"/\' /etc/default/nginx',
+exec {'replace_u-limit':
+  path    => ['/bin', '/usr/bin'],
+  command => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
+  before  => Exec['restart_nginx'],
 }
-# Restart Nginx
-exec { 'nginx-restart':
-  command => '/usr/sbin/service nginx restart',
+
+exec {'restart_nginx':
+  path    => ['/bin', '/usr/bin'],
+  command => 'sudo service nginx restart',
 }
